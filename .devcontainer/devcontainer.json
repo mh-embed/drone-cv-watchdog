@@ -1,0 +1,49 @@
+{
+	// Specify the container to develop in. You can replace "latest" with
+	// another tag if you need a different version. However you probably won't
+	// need this, and you certainly shouldn't commit it.
+	"name": "MH-Drone",
+	"image": "ghcr.io/mh-embed/drone-devcontainer",
+
+	// You can find the ID for an extension by going to the extension browser,
+	// choosing the extension, and looking on the right side pane at the bottom.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				// C++
+				"ms-vscode.cpptools-extension-pack",
+				// Python
+				"ms-python.python",
+				"visualstudioexptteam.vscodeintellicode",
+				"njpwerner.autodocstring",
+				"kevinrose.vsc-python-indent",
+				"ms-python.vscode-pylance",
+				"njqdev.vscode-python-typehint",
+				// ROS
+				"ajshort.msg",
+				"ms-iot.vscode-ros",
+				// Linting, Tasks, Git nice-to-haves
+				"mhutchie.git-graph",
+				"nhoizey.gremlins",
+				"redhat.vscode-xml",
+				"actboy168.tasks",
+				"brpaz.file-templates"
+			]
+		}
+	},
+
+	// Here you can add scripts to run when the container is built. This is good
+	// for installing extra tools you need or making some specific change for
+	// your workflow. Note the '-y' flag, else the container will pause for
+	// input and never finish buildingFor tools that should be added
+	// permanently, log an issue in the base image repo.
+
+	// Below, we are installing the tree command (even though it is there by
+	// default, so this is not a useful example...):
+	// "postCreateCommand": "apt update -y && apt install -y tree",
+
+	// Give us a pretty bash prompt (since VSCode is overriding shell)
+	"remoteEnv": {
+		"PS1": "\\[\\e[0;1;38;5;82m\\]MHacker ~\\[\\e[0m\\] " // Note the '\\'
+	}
+}
