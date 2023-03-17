@@ -3,7 +3,7 @@
 	// another tag if you need a different version. However you probably won't
 	// need this, and you certainly shouldn't commit it.
 	"name": "MH-Drone",
-	"image": "ghcr.io/mh-embed/drone-devcontainer",
+	"image": "docker.io/derickson2402/mh-embed-drone",
 
 	// You can find the ID for an extension by going to the extension browser,
 	// choosing the extension, and looking on the right side pane at the bottom.
