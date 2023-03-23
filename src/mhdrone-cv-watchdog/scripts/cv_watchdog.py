@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 import rospy
 from std_msgs.msg import String, Bool
 import sys, json
@@ -16,14 +16,14 @@ CV_UID_LIST = ["EMERGENCY"]
 class cv_node_publisher:
     def __init__(self, uid):
         self.uid = uid
-        cv_selector_bit = rospy.Publisher('cv-selector-' + uid, Bool, queue_size=1)
-        cv_selector_bit.publish(False)
+        self.cv_selector_bit = rospy.Publisher('cv-selector-' + uid, Bool, queue_size=1)
+        self.cv_selector_bit.publish(False)
 
     def start(self):
-        cv_selector_bit.publish(True)
+        self.cv_selector_bit.publish(True)
 
     def stop(self):
-        cv_selector_bit.publish(False)
+        self.cv_selector_bit.publish(False)
 
     def get_uid(self):
         return self.uid
@@ -37,7 +37,7 @@ class cv_manager:
         self.current_node_index = -1
 
         # Initialize Nodes, default to NOT start
-        self.read_cv_uid_list(filename)
+        self.read_cv_uid_list()
 
     def read_cv_uid_list(self):
         for uid in CV_UID_LIST:
@@ -90,7 +90,7 @@ def main():
 
     # Check CV Response and switch to manual if necessary
     while not rospy.is_shutdown():
-        check_cv_response()
+        manager.ensure_cv_response()
 
     rate.sleep()
 
