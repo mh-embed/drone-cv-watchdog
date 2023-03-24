@@ -1,3 +1,6 @@
 [submodule "drone-devcontainer-config"]
 	path = drone-devcontainer-config
 	url = git@github.com:mh-embed/drone-devcontainer-config.git
+[submodule ".devcontainer"]
+	path = .devcontainer
+	url = git@github.com:mh-embed/.devcontainer.git
