@@ -203,5 +203,5 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-catkin_install_python(PROGRAMS scripts/my_executable_python_script.py
+catkin_install_python(PROGRAMS scripts/cv_watchdog.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
