@@ -3,8 +3,12 @@
 	// another tag if you need a different version. However you probably won't
 	// need this, and you certainly shouldn't commit it.
 	"name": "MH-Drone",
-	// "image": "docker.io/derickson2402/mh-embed-drone",
-	"image": "docker.io/danielhouevr315/drone-devcontainer-buster:arm64",
+
+	// Images: 
+	// "image": "docker.io/derickson2402/mh-embed-drone", // v1, No Longer Used
+	"image": "docker.io/danielhouevr315/drone-devcontainer-buster:arm64", // Image for ARM SoC like Apple M1, M2, RPI
+	// "image": "docker.io/danielhouevr315/drone-devcontainer-buster:arm64", // Image for X86_64 Architecture
+
 	// You can find the ID for an extension by going to the extension browser,
 	// choosing the extension, and looking on the right side pane at the bottom.
 	"customizations": {
