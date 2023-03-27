@@ -83,7 +83,7 @@ def main():
 
     # Setup Subscribing
     # Setup Selector Bit 
-    rospy.Subscriber('cv_manager', String, manager.update_cv)
+    rospy.Subscriber('cv_manager/selector', String, manager.update_cv)
 
     # Setup Spin Rate
     rate = rospy.Rate(WATCHDOG_RATE)       # All CV Programs run at 30hz
