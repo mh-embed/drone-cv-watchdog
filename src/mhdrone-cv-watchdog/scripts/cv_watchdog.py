@@ -16,7 +16,7 @@ CV_UID_LIST = ["EMERGENCY"]
 class cv_node_publisher:
     def __init__(self, uid):
         self.uid = uid
-        self.cv_selector_bit = rospy.Publisher('cv-selector-' + uid, Bool, queue_size=1)
+        self.cv_selector_bit = rospy.Publisher('cv_selector/' + uid, Bool, queue_size=1)
         self.cv_selector_bit.publish(False)
 
     def start(self):
@@ -46,7 +46,7 @@ class cv_manager:
 
     # To Be Implemented
     # Monitors Active Response From the Running CV Instance
-    def ensure_cv_response():
+    def ensure_cv_response(self):
         return
 
     # Determine whether the time to last published is over the limit
@@ -75,7 +75,7 @@ class cv_manager:
 def main():
 
     # Initialize the Node
-    rospy.init_node('cv-watchdog')
+    rospy.init_node('cv_watchdog')
 
     # Setup Publishing
     # Setup Manager for Each CV program
@@ -83,7 +83,7 @@ def main():
 
     # Setup Subscribing
     # Setup Selector Bit 
-    rospy.Subscriber('cv-manager-selector', String, manager.update_cv)
+    rospy.Subscriber('cv_manager', String, manager.update_cv)
 
     # Setup Spin Rate
     rate = rospy.Rate(WATCHDOG_RATE)       # All CV Programs run at 30hz
@@ -91,8 +91,8 @@ def main():
     # Check CV Response and switch to manual if necessary
     while not rospy.is_shutdown():
         manager.ensure_cv_response()
-
-    rate.sleep()
+        print("Node Running!")
+        rate.sleep()
 
 
 if __name__ == '__main__':
